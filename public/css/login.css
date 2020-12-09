@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    color: rgb(190, 190, 190);
+}
+
+
+.container, .container_cadastro {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container .esquerda {
+    width: 50%;
+    height: 100%;
+    background-color: #020314;
+    float: left;
+}
+
+.container_cadastro .direita {
+    width: 50%;
+    height: 100%;
+    background-color: #020314;
+    float: right;
+    /* margin-top: -10px; */
+}
+
+.container .esquerda .voltar {
+    width: 54px;
+    height: 53px;
+    margin: 15px;
+    position: absolute;
+    background-color: #B332E6;
+    border-radius: 10px;
+}
+
+.container_cadastro .direita .voltar {
+    width: 54px;
+    height: 53px;
+    margin: 15px;
+    margin-left: 580px;
+    position: absolute;
+    background-color: #B332E6;
+    border-radius: 10px;
+}
+
+.container .esquerda .voltar:hover,
+.container_cadastro .direita .voltar:hover {
+    background-color: #8632E6;
+    transition: 0.6s;
+ }
+
+
+.container .esquerda .voltar img,
+.container_cadastro .direita .voltar img {
+    width: 25px;
+    margin: 13px;
+}
+
+.container .direita,
+.container_cadastro .esq {
+    width: 50%;
+    height: 100%;
+    float: right;
+    background-image: url(../img/fundo1.png);
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+
+.container .direita img,
+.container_cadastro .esq img {
+    margin: 110px 0 0 100px;
+}
+
+.container .esquerda .content {
+    width: 58%;
+    height: 70%;
+    margin: 93px auto;
+    /* background-color: aliceblue; */
+}
+
+.container_cadastro .direita .content {
+    width: 58%;
+    height: 70%;
+    margin: 53px auto;
+    /* background-color: aliceblue; */
+}
+
+.container .esquerda .content input,
+.container_cadastro .direita .content input {
+    width: 99%;
+    height: 50px;
+    margin-top: 20px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #acaaaa;
+    color: #acaaaa;
+}
+
+.container .esquerda .content input::placeholder,
+.container_cadastro .direita .content input::placeholder {
+    color: #757575;
+}
+
+.container .esquerda .content .entrar,
+.container_cadastro .direita .content .entrar {
+    width: 99%;
+    height: 50px;
+    margin-top: 40px;
+    background: linear-gradient(to bottom right, #B332E6, #E032E6);
+    color: #020314;
+    font-weight: bold;
+    font-size: 16px;
+    padding-bottom: 4px;
+    border: none;
+    border-radius: 100px;
+}
+
+.container .esquerda .content .cadastrar,
+.container_cadastro .direita .content .cadastrar {
+    width: 99%;
+    height: 50px;
+    margin-top: 20px;
+    background-color: #020314;
+    color: #B332E6;
+    font-weight: bold;
+    font-size: 16px;
+    padding-bottom: 4px;
+    border: solid 1px #B332E6;
+    border-radius: 100px;
+}
+
+.container .esquerda .content .entrar:hover,
+.container_cadastro .direita .content .entrar:hover {
+    background: linear-gradient(to bottom left, #E032E6, #B332E6);
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.container .esquerda .content .cadastrar:hover,
+.container_cadastro .direita .content .cadastrar:hover {
+    cursor: pointer;
+}
+
+.imgs {
+    margin: 28px 145px;
+    width: 150px;
+}
+
+.container .esquerda .content img,
+.container_cadastro .direita .content img {
+    width: 40px;
+    margin-right: 15px;
+}
+
+.container .esquerda .content .linha,
+.container_cadastro .direita .content .linha {
+    width: 100%;
+    height: 15px;
+    /* border: none; */
+    border-bottom: 1px solid #1e2035;
+    text-align: center;
+}
+
+.container .esquerda .content .linha span,
+.container_cadastro .direita .content .linha span {
+    color: #1e2035;
+    padding: 12px;
+    margin-bottom: -10px;
+    font-size: 18px;
+    background-color: #020314;
+}
+
+.esqueci {
+    text-decoration: none;
+}
+
+@keyframes slidein {
+    from {
+        left: 0;
+        width: 50%;
+        z-index: 1000;
+    }
+
+    25% {
+        left: 25%;
+        width: 60%;
+        z-index: 1000;
+    }
+
+    50% {
+        left: 50%;
+        width: 70%;
+        z-index: 1000;
+    }
+
+    75% {
+        left: 75%;
+        width: 60%;
+        z-index: 1000;
+    }
+
+    to {
+        left: 60%;
+        width: 50%;
+        z-index: 1000;
+    }
+}

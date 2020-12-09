@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/login.css">
+    <title>Sign in</title>
+</head>
+
+<body>
+    <form id="container" class="container" style="display: block;">
+        <div class="esquerda">
+            <a href="index.html" class="voltar"><img src="img/arrow.png" alt=""></a>
+            <div class="content">
+                <h1>Faça login no Voyager!</h1>
+                <br>
+                <input type="text" name="login" placeholder="Login" autofocus>
+                <br>
+                <input type="password" name="senha" placeholder="Senha" style="margin-bottom: 10px;">
+                <br>
+                <a class="esqueci" href="">Esqueci a senha</a>
+                <button class="entrar" onclick="entrou()" type="button">Entrar</button>
+                <button class="cadastrar" onclick="cadastrar()" type="button">Cadastre-se</button>
+                <br><br>
+                <div class="linha">
+                    <span>ou</span>
+                </div>
+                <div class="imgs">
+                    <a href="#"><img src="img/fb.png" alt=""></a>
+                    <a href="#"><img src="img/google.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="direita">
+            <img src="img/planet-gif.gif" alt="">
+        </div>
+    </form>
+
+    <form id="containerCadastro" class="container_cadastro" style="display: none;">
+        <div class="direita">
+            <a href="index.html" class="voltar"><img src="img/arrow.png" alt=""></a>
+            <div class="content">
+                <h1>Cadastre-se no Voyager!</h1>
+                <br>
+                <input type="text" name="nome" placeholder="Nome" autofocus>
+                <br>
+                <input type="text" name="login" placeholder="Login">
+                <br>
+                <input type="password" name="senha" placeholder="Senha">
+                <br>
+                <button class="entrar" onclick="cadastrou()" type="button">Cadastrar</button>
+                <button class="cadastrar" onclick="entrar()" type="button">Fazer login</button>
+                <br><br>
+                <div class="linha">
+                    <span>ou</span>
+                </div>
+                <div class="imgs">
+                    <a href="#"><img src="img/fb.png" alt=""></a>
+                    <a href="#"><img src="img/google.png" alt=""></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="esq">
+            <img src="img/planet-gif.gif" alt="">
+        </div>
+    </form>
+
+    <script>
+        function entrou() {
+            // aguardar();
+            var formulario = new URLSearchParams(new FormData(container));
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                body: formulario
+            }).then(resposta => {
+
+                if (resposta.ok) {
+
+                    resposta.json().then(json => {
+
+                        sessionStorage.login_usuario_meuapp = json.login;
+                        sessionStorage.nome_usuario_meuapp = json.nome;
+
+                        window.location.href = 'load.html';
+                    });
+
+                } else {
+
+                    console.log('Erro de login!');
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        // finalizar_aguardar(texto);
+                    });
+                }
+            });
+
+            return false;
+
+        }
+
+        function entrar() {
+            container.style.display = 'block';
+            containerCadastro.style.display = 'none';
+
+        }
+
+
+        function cadastrou() {
+            // aguardar();
+            var formulario = new URLSearchParams(new FormData(containerCadastro));
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                body: formulario
+            }).then(function (response) {
+
+                if (response.ok) {
+                    alert("Cadastro realizado com sucesso! \n\nFaça login com os dados cadastrados.");
+                    window.location.href = 'login.html';
+
+
+                } else {
+
+                    console.log('Erro de cadastro!');
+                    response.text().then(function (resposta) {
+                        div_erro.innerHTML = resposta;
+                    });
+                    // finalizar_aguardar();
+                }
+            });
+
+            return false;
+        }
+
+        function cadastrar() {
+            container.style.display = 'none';
+            containerCadastro.style.display = 'block';
+        }
+
+            // function aguardar() {
+            //     btn_entrar.disabled = true;
+            //     img_aguarde.style.visibility = 'visible';
+            //     div_erro.style.visibility = 'hidden';
+            // }
+
+            // function finalizar_aguardar(resposta) {
+            //     btn_entrar.disabled = false;
+            //     img_aguarde.style.visibility = 'hidden';
+            //     div_erro.style.visibility = 'visible';
+            //     div_erro.innerHTML = resposta;
+            // }
+
+    </script>
+</body>
+
+</html>

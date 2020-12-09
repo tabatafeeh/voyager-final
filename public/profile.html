@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/logo.png">
+  <link rel="stylesheet" href="css/profile.css">
+  <script src="js/funcoes.js"></script>
+
+  <title onm>Profile</title>
+</head>
+
+<body onload="verificar_autenticacao()">
+  <div class="modal-bg" id="modalBg">
+    <div class="modal">
+      <img src="img/close.svg" alt="" onclick="fecharModal()" style="cursor: pointer;">
+      <div class="content">
+        <img src="img/astronaut.gif" alt="">
+        <br><br><br><br>
+        <h1 id="text">Não sabe qual imagem você quer baixar?</h1>
+        <br>
+        <!-- <h3>I will help you</h3> -->
+        <img src="" id="imagem">
+        <img id="gifzin" src="https://media.giphy.com/media/TGKn4dC1ZD6EMwE21o/giphy.gif" alt="">
+        <button class="suggest" id="sugere" onclick="sugerir()">ME SUGIRA UMA IMAGEM</button>
+        <button class="suggest" id="other" onclick="sugerir()" style="display: none">QUERO OUTRA</button>
+        <button class="like" id="like" onclick="liked()" style="display: none">GOSTEI DESSA! ❤</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="left-menu">
+    <img src="img/pluto.png" alt="" id="profileImg" style="display: none;">
+    <p id="nome" style="display: none;"><span id='b_usuario'></span></p>
+    <br>
+    <ul style="display: none;" id="list">
+      <li><a href="#"> GALERIA</a></li>
+      <li><a href="#suggest" onclick="abreModal()">SUGIRA-ME</a></li>
+      <li><a href="#">FAVORITOS</a></li>
+      <li><a href="#">CONFIGURAÇÕES</a></li>
+    </ul>
+    <button id="logout" class="logout" onclick="logoff()">Sair</button>
+  </div>
+
+  <div id="gallery">
+    <div class="content" id="content">
+      <!-- as imagens sao adicionadas a partir do javascript,
+      por isso não há nenhuma imagem aqui -->
+
+      <!-- <div class="item">
+        <img class="images" id="images" src="img/gallery/0.jpg" alt="">
+        <div class="btns">
+          <img src="img/like.svg" class="heart" id="heart0">
+          <img src="img/share.svg" class="share">
+          <a href="img/gallery/0.jpg" download="0.jpg">
+            <img src="img/download.svg" class="download">
+          </a>
+        </div>
+      </div> -->
+
+      <div onclick="subir()" class="more">
+        <!-- <img src="img/arrow.png" alt=""> -->
+        +
+      </div>
+      <div id="notificacao" style="display: none;">
+        <img src="img/like.svg" alt="" class="heart-not">
+        <h1>Imagem salva!</h1>
+      </div>
+      <div id="divSubir" style="display: none;">
+        <img src="img/close.svg" alt="" onclick="fecharSubirImg()" style="width: 30px;">
+        <div class="drag" draggable="true">
+          <h2>{ Arraste e solte sua imagem aqui! }</h2>
+        </div>
+        <input type="file">
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    let login_usuario;
+    let nome_usuario;
+    // efeito de aparecer os itens do menu
+    setTimeout(function () {
+      profileImg.style = 'display: block;';
+      setTimeout(function () {
+        nome.style = 'display: block';
+        setTimeout(function () {
+          list.style = 'display: block';
+          setTimeout(function () {
+            logout.style = 'display: block';
+          }, 300);
+        }, 300);
+      }, 380);
+    }, 380);
+
+    for(let i = 0; i < 31; i++) {
+      content.innerHTML += `<div class="item">
+        <img class="images" id="images" src="img/gallery/${i}.jpg" alt="">
+        <div class="btns">
+          <img src="img/like.svg" class="heart" id="heart${i}">
+          <img src="img/share.svg" class="share">
+          <a href="img/gallery/${i}.jpg" download="${i}.jpg">
+            <img src="img/download.svg" class="download">
+          </a>
+        </div>
+      </div>`;
+    }
+
+    var classe = document.getElementsByClassName('heart');
+    // event listener pra cada elemento com a classe heart
+
+    for (let j = 0; j < classe.length; j++) {
+      classe[j].addEventListener('click', function () {
+
+        for (let i = 0; i < 31; i++) {
+          // identificacao recebe 'heart[i]'
+          identificacao = `heart${i}`;
+          //  se o id do elemento com a classe hear for igual à variavel
+          //  identificacao, o console mostra o caminho da imagem correspondente
+          if (classe[j].id == identificacao) {
+            console.log(`img/gallery/${i}.jpg`);
+            // mostra que a imagem foi salva
+            notificacao.style.display = 'block';
+            setTimeout(function () {
+              notificacao.style.display = 'none';
+            }, 2200);
+            break;
+          }
+        }
+      });
+    }
+
+
+    function writer(element) {
+      const text = element.innerHTML.split('');
+      element.innerHTML = '';
+      text.forEach((letter, i) => {
+        setTimeout(() => element.innerHTML += letter, 50 * i)
+      });
+    }
+
+    // funcao para abrir o modal
+    function abreModal() {
+      modalBg.style.display = 'block';
+
+      const title = document.querySelector('h1');
+      writer(title);
+    }
+
+    // funcao para fechar o modal
+    function fecharModal() {
+      modalBg.style.display = 'none';
+      imagem.style.display = 'none';
+      other.style.display = 'none';
+      like.style.display = 'none';
+      sugere.style.display = 'block';
+      text.innerHTML = "Não sabe qual imagem você quer baixar?";
+    }
+
+    function fecharSubirImg() {
+      divSubir.style.display = 'none';
+    }
+
+    function sugerir() {
+      imagem.style.display = 'none';
+      other.style.display = 'none';
+      like.style.display = 'none';
+      sugere.style.display = 'block';
+      text.innerHTML = "Deixa eu ver...";
+      gifzin.style.display = 'block';
+
+      const title = document.querySelector('h1');
+      writer(title);
+
+      setTimeout(function () {
+        // gera imagem aleatoria
+        var num = Math.round(Math.random() * 31);
+        console.log(num);
+
+        imagem.src = `img/gallery/${num}.jpg`;
+        imagem.style.display = 'block';
+
+        text.style.marginTop = '-30px';
+        text.innerHTML = "Que tal esta?";
+
+        other.style.display = 'block';
+        like.style.display = 'block';
+        sugere.style.display = 'none';
+        gifzin.style.display = 'none';
+
+        writer(title);
+
+      }, 3000);
+
+    }
+
+    function liked() {
+
+    }
+
+    // fecha o modal caso a tecla clicada seja ESC
+    document.querySelector('body').addEventListener('keydown', function (event) {
+      if (event.keyCode == 27) {
+        fecharModal();
+        fecharSubirImg();
+      }
+    });
+
+
+    function subir() {
+      divSubir.style.display = 'block';
+    }
+
+
+  </script>
+
+</body>
+
+</html>

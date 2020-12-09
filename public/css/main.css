@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    /* overflow-y: ; */
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #020314;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0abdc6;
+    border-radius: 15px;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    width: 100vw;
+    height: 70px;
+    background-color: #020314;
+    border-bottom: solid 1px #12D6D6;
+    position: fixed;
+    z-index: 1;
+}
+
+.nav {
+    padding: 8px 28px;
+}
+
+.nav .items {
+    margin-top: -37px;
+    margin-right: 10px;
+    height: 100%;
+}
+
+.nav .items ul li {
+    list-style: none;
+    color: darkgray;
+    float: right;
+    font-size: 16px;
+    padding: 0px 35px;
+}
+
+.nav .items ul .menu-items:hover {
+    border-bottom: solid 5px #12D6D6;
+    padding-bottom: 20px;
+}
+
+
+.nav .items button {
+    width: 86px;
+    height: 32px;
+    background-color: #C3505C;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-top: -8px;
+    padding-bottom: 1px;
+}
+
+.nome {
+    margin-bottom: 6px;
+}
+
+
+.content {
+    background: url(../img/fundo1.png);
+    background-size: cover;
+    background-attachment: fixed;
+    /* background-repeat: no-repeat; */
+    width: 100vw;
+    height: 100%;
+}
+
+#particles-js {
+    /* width: 100%; */
+    height: 100%;
+}
+.content .infos {
+    width: 435px;
+    height: 300px;
+    color: white;
+    position: absolute;
+    /* padding: 200px 500px; */
+    margin-top: 220px;
+    margin-left: 470px;
+    text-align: center;
+    /* word-spacing: 10px; */
+}
+
+.content .infos h1 {
+    font-size: 54px;
+    height: 150px;
+}
+
+.content .infos h1::after{
+    content: '|';
+    opacity: 1;
+    animation: animation-home .9s infinite;
+    /* z-index: 0; */
+}
+
+.content .infos button {
+    width: 290px;
+    height: 60px;
+    margin-top: 35px;
+    border-radius: 100px;
+    border: none;
+    color: white;
+    background-color: #C3505C;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #9648b4!important;
+    transition: all 1s;
+}
+
+#about {
+    height: 90vh;
+    background-color: #020314;
+    border-top: 1px #12D6D6;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 72%;
+    height: 400px;
+    /* background-color: #12D6D6; */
+    margin: auto;
+    /* perspective: 900px; */
+}
+
+.card {
+    position: relative;
+    width: 250px;
+    height: 300px;
+    background-color: white;
+    float: left;
+    margin: 35px;
+    border-radius: 15px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    
+    
+}
+
+.card.is-flipped {
+    /* transform: scale(1.05, 1.05); */
+    transform: rotateY(180deg);
+    background-color: #9648b4;
+}
+
+.card-content {
+    /* position: absolute; */
+    width: 86%;
+    height: 85%;
+    
+}
+
+.card-front {
+    background-color: #fff;
+    margin: 20px 18px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+}
+
+.card .card-content .card-front p {
+    text-align: center;
+    margin-left: 5px;
+    width: 200px;
+    color: #9648b4;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.card .card-content .card-back p {
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    margin-left: -32px;
+    margin-top: -140px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.card .card-content img {
+    width: 104px;
+    margin: 20px 56px;
+}
+
+#news {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 75vh;
+    /* background-color: #12D6D6; */
+    background-color: #310073;
+    background-image: url(img/fundo1.png);
+    background-size: cover;
+    padding-top: 100px;
+    /* padding-left: 20px; */
+}
+
+#news .new {
+    width: 520px;
+    height: 130px;
+    background-color: #fff;
+    margin: 20px;
+    cursor: pointer;
+}
+
+#news .news-left {
+    margin-left: 100px;
+}
+
+#news .news-left .image {
+    width: 28%;
+    height: 100%;
+    background-color: #12D6D6;
+}
+
+#news .news-left .image img {
+    width: 100%;
+    height: 100%;
+}
+
+#news .news-right {
+    margin-left: 50px;
+}
+
+#news .news-right .image {
+    width: 28%;
+    height: 100%;
+    background-color: #12D6D6;
+}
+
+#news .news-right .image img {
+    width: 100%;
+    height: 100%;
+}
+
+#news .new .text-new {
+    float: right;
+    margin: -115px 10px;
+    /* background-color: #C3505C; */
+    width: 68%;
+}
+
+#news .new .text-new p {
+    font-size: 27px;
+    font-family: roboto;
+    margin-left: 7px;
+}
+
+#news .new .link-nasa {
+    background-color: rgb(177, 177, 177);
+    position: absolute;
+    padding: 4px 10px;
+    margin: -29px 438px;
+}
+
+#about-me {
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+}
+
+#about-me .texto p {
+    width: 92%;
+    font-size: 24px;
+    color: #fff;
+    text-align: justify;
+}
+
+.foto {
+    width: 450px;
+    height: 450px;
+    float: left;
+    object-fit: cover;
+    background-color: #0abdc6;
+    border-radius: 100%;
+    margin: 115px 0 0 115px;
+    margin-right: 100px;
+}
+
+#contact {
+    width: 100%;
+    height: 100vh;
+    background-color: #020314;
+}
+
+#et {
+    float: right;
+    width: 40%;   
+    margin-top: 55px;
+    margin-right: 45px;
+}
+
+.tarja {
+    background-color: #020314;
+    width: 24%;
+    height: 50px;
+    float: right;
+    margin: 543px -430px 0 0;
+}
+
+.contato {
+    width: 30%;
+    height: 71.3%;
+    background-color: #310073;
+    padding: 90px 135px;
+}
+
+.contato input {
+    width: 97%;
+    height: 33px;
+    margin-top: 16px;
+    padding: 7px;
+    border: none;
+}
+
+.contato textarea {
+    width: 97.3%;
+    height: 140px;
+    padding: 7px;
+    margin-top: 16px;
+    border: none;
+}
+
+.contato button {
+    width: 101.4%;
+    height: 60px;
+    margin-top: 12px;
+    background-color: #C3505C;
+    border: none;
+    font-weight: bold;
+    font-size: 19px;
+    color: #fff;
+}
+
+/* animacao barra piscando */
+@keyframes animation-home {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}

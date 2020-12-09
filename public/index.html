@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo.png">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <title>Voyager</title>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo do site">
+                <img class="nome" src="img/logoNome.png" alt="">
+            </div>
+            <div class="items">
+                <ul>
+                    <li><button onclick="location.href='login.html'">LOG-IN</button></li>
+                    <li class="menu-items"><a href="#contact">CONTATO</a></li>
+                    <li class="menu-items"><a href="#about-me">SOBRE</a></li>
+                    <li class="menu-items"><a href="#news">NOTÍCIAS</a></li>
+                    <li class="menu-items"><a href="#about">VALORES</a></li>
+                    <li class="menu-items"><a href="#">HOME</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="content" id="particles-js">
+        <div class="infos">
+            <h1>Explore todas as possibilidades!</h1>
+            <button onclick="location.href='#about'">INICIAR</button>
+        </div>
+
+        <script src="js/particles.js"></script>
+        <script src="js/app.js"></script>
+
+        <div id="about">
+            <br><br><br><br>
+            <div class="container">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-front">
+                            <img src="img/logo.png" alt="">
+                            <p>Curiosidade</p>
+                            <br><br><br>
+                            <p>(Clique em mim!)</p> 
+                        </div>
+                        <div class="card-back">
+                            <!-- <img src="img/logo.png" alt=""> -->
+                            <p>A curiosidade me move e mantém tudo um pouco mais interessante, contribuindo para o aprendizado.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-front">
+                            <img src="img/logo.png" alt="">
+                            <p>Perseverança</p>
+                            <br><br><br>
+                            <p>(Clique em mim!)</p>
+                        </div>
+                        <div class="card-back">
+                            <!-- <img src="img/logo.png" alt=""> -->
+                            <p>Essencial para continuar sempre, sem desistir, conseguindo bons frutos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-front">
+                            <img src="img/logo.png" alt="">
+                            <p>Resiliência</p>
+                            <br><br><br>
+                            <p>(Clique em mim!)</p>
+                        </div>
+                        <div class="card-back">
+                            <!-- <img src="img/logo.png" alt=""> -->
+                            <p>Embora tudo pareça dar errado, continuo em busca de uma solução, tentando me adaptar da melhor forma a situações adversas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="news">
+            <!-- <div class="container"> -->
+
+            <div class="news-left">
+                <div title="https://www.nasa.gov/feature/goddard/2020/hubble-finds-greater-pumpkin-galaxy-pair"
+                    class="new"
+                    onclick="location.href='https://www.nasa.gov/feature/goddard/2020/hubble-finds-greater-pumpkin-galaxy-pair'">
+                    <div class="image">
+                        <img src="img/galaxy.jpg" alt="">
+                    </div>
+                    <div class="text-new">
+                        <p>Hubble Finds ‘Greater Pumpkin’ Galaxy Pair</p>
+                    </div>
+                    <div class="link-nasa">nasa.gov</div>
+                </div>
+                <br>
+                <div title="https://www.nasa.gov/feature/goddard/2020/nasa-scientists-discover-a-weird-molecule-in-titan-s-atmosphere/"
+                    class="new" onclick="location.href='https://www.nasa.gov/feature/ames/pluto-ice-caps'">
+                    <div class="image">
+                        <img src="img/pluto.png" alt="">
+                    </div>
+                    <div class="text-new">
+                        <p>Pluto's Ice Caps Made of Methane, Turns Earth's Process Upside Down
+                        </p>
+                    </div>
+                    <div class="link-nasa">nasa.gov</div>
+                </div>
+            </div>
+            <div class="news-right">
+                <div title="https://www.nasa.gov/feature/goddard/2020/nasa-scientists-discover-a-weird-molecule-in-titan-s-atmosphere/"
+                    class="new"
+                    onclick="location.href='https://www.nasa.gov/feature/goddard/2020/nasa-scientists-discover-a-weird-molecule-in-titan-s-atmosphere/'">
+                    <div class="image">
+                        <img src="img/titan.jpg" alt="">
+                    </div>
+                    <div class="text-new">
+                        <p>‘Weird’ Molecule Discovered in Titan’s Atmosphere</p>
+                    </div>
+                    <div class="link-nasa">nasa.gov</div>
+                </div>
+                <br>
+                <div title="https://www.nasa.gov/press-release/nasa-s-sofia-discovers-water-on-sunlit-surface-of-moon/"
+                    class="new"
+                    onclick="location.href='https://www.nasa.gov/press-release/nasa-s-sofia-discovers-water-on-sunlit-surface-of-moon/'">
+                    <div class="image">
+                        <img src="img/moon.jpg" alt="">
+                    </div>
+                    <div class="text-new">
+                        <p>NASA’s SOFIA Discovers Water on Sunlit Surface of Moon</p>
+                    </div>
+                    <div class="link-nasa">nasa.gov</div>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+
+        <div id="about-me">
+            <img class='foto' src="img/tabata.jpg" alt="">
+            <div class="texto">
+                <br><br><br><br>
+                <h1>Sobre a criadora</h1>
+                <br><br>
+                <p>
+                    Olá, eu sou a Tabata! Assim como você, também amo fotos e curiosidades sobre 
+                    o universo. O meu interesse por essas coisas vem desde criança.
+                    Por muito tempo quis fazer astrofísica e me tornar uma astronauta! Os tempos passaram
+                    porém o amor que sinto por tudo que está além do nosso planeta - as estrelas, galáxias, e até
+                    mesmo o desconhecido - continua o mesmo. E foi por isso que decidi criar esse site. Seja bem
+                    vindo(a) e "explore todas as possibilidades"!.
+
+                </p>
+
+            </div>
+        </div>
+
+        <div id="contact">  
+            <img id="et" src="https://media.giphy.com/media/MFlaavqytsPOjPjfL0/giphy.gif" alt="">
+            <div class="tarja"></div>
+            <form action="#" class="contato">
+                <h1>Entre em contato!</h1>
+                <input type="text" placeholder="Nome">
+                <br>
+                <input type="email" placeholder="E-mail">
+                <br>
+                <input type="text" placeholder="Assunto">
+                <br>
+                <textarea cols="30" rows="10" placeholder="Mensagem"></textarea>
+                <br>   
+                <button>Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- animacao para simular digitacao -->
+    <script>
+        function writer(element) {
+            const text = element.innerHTML.split('');
+            element.innerHTML = '';
+            text.forEach((letter, i) => {
+                setTimeout(() => element.innerHTML += letter, 100 * i)
+            });
+        }
+
+        const title = document.querySelector('h1');
+        writer(title);
+    </script>
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
